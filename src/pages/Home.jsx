@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   const canvasRef = useRef(null);
+  const [installPrompt, setInstallPrompt] = useState(null);
+
+  useEffect(() => {
+
+    window.addEventListener("beforeinstallprompt", (e) => {
+
+      e.preventDefault();
+
+      setInstallPrompt(e);
+
+    });
+
+  }, []);
 
   useEffect(() => {
     // Canvas Initialization logic
@@ -141,6 +154,20 @@ function Home() {
     };
   }, []);
 
+  const handleInstall = async () => {
+
+    if (installPrompt) {
+
+      installPrompt.prompt();
+
+      await installPrompt.userChoice;
+
+      setInstallPrompt(null);
+
+    }
+
+  };
+
   return (
     <>
       <section className="hero-section" id="home">
@@ -148,14 +175,27 @@ function Home() {
         <div className="grain"></div>
         <div className="hero-stripe"></div>
         <div className="container hero-content">
-          <div className="row align-items-center" style={{minHeight:'100vh'}}>
+          <div className="row align-items-center" style={{ minHeight: '100vh' }}>
             <div className="col-lg-7 hero-left">
               <div className="hero-eyebrow" id="heroEyebrow"><span className="eyebrow-dot"></span>Campus Dining, Reimagined</div>
-              <h1 className="hero-heading" id="heroHeading">Hungry<br/><em>on Campus?</em><br/><span className="heading-fill">We've got you.</span></h1>
-              <p className="hero-sub" id="heroSub">Made by SRMITES for SRMITES — skip the queue,<br className="d-none d-md-block"/>order from your hostel, eat better.</p>
+              <h1 className="hero-heading" id="heroHeading">Hungry<br /><em>on Campus?</em><br /><span className="heading-fill">We've got you.</span></h1>
+              <p className="hero-sub" id="heroSub">Made by SRMITES for SRMITES — skip the queue,<br className="d-none d-md-block" />order from your hostel, eat better.</p>
               <div className="hero-actions" id="heroActions">
                 <Link to="/menu" className="btn-main"><span>Explore Menu</span><i className="bi bi-arrow-right"></i></Link>
-                <button className="btn-ghost"><i className="bi bi-phone"></i>Get the App</button>
+                {installPrompt && (
+
+                  <button
+                    className="install-app-btn"
+                    onClick={handleInstall}
+                  >
+
+                    <i className="bi bi-phone"></i>
+
+                    Get the App
+
+                  </button>
+
+                )}
               </div>
             </div>
             <div className="col-lg-5 d-none d-lg-flex justify-content-center" id="heroRight">
@@ -177,7 +217,7 @@ function Home() {
           <div className="features-top" id="featHeader">
             <div className="features-top__left">
               <p className="section-label">Why Food<span className="brand-2">2</span>U</p>
-              <h2 className="section-title">Built for<br/><em>campus life.</em></h2>
+              <h2 className="section-title">Built for<br /><em>campus life.</em></h2>
             </div>
             <p className="features-top__desc">Everything you need to eat well on campus — fast, easy, and without the hassle.</p>
           </div>
@@ -194,7 +234,7 @@ function Home() {
         <div className="about-bg-text" aria-hidden="true">F2U</div>
         <div className="container">
           <div className="section-header" id="aboutHeader">
-            <p className="section-label">The Team</p><h2 className="section-title">Made by<br/><em>students,</em><br/>for students.</h2>
+            <p className="section-label">The Team</p><h2 className="section-title">Made by<br /><em>students,</em><br />for students.</h2>
             <p className="about-desc">We're 4 SRM students who got tired of missing lunch between classes. So we built the fix ourselves.</p>
           </div>
           <div className="team-grid">
