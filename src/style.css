@@ -340,7 +340,7 @@ body {
   transform: translateX(4px);
 }
 
-.btn-ghost {
+.install-app-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -356,7 +356,7 @@ body {
   transition: all 0.3s var(--ease);
 }
 
-.btn-ghost:hover {
+.install-app-btn:hover {
   background: var(--blue-pale);
   border-color: var(--blue);
   color: var(--blue);
