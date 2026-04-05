@@ -94,7 +94,12 @@ body {
   padding: 12px;
 }
 
-.card-img-top { height: 190px; object-fit: cover; border-radius: 18px; }
+.card-img-top { 
+  height: 190px; 
+  object-fit: cover; 
+  object-position: top;   /* 🔥 ADD THIS LINE */
+  border-radius: 18px; 
+}
 .card-title { font-family: var(--font-display); font-weight: 900; font-size: 1.45rem; margin-top: 15px; }
 
 .btn-primary { background: var(--blue); border: none; border-radius: 50px; padding: 10px; font-weight: 600; }
