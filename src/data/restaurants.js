@@ -5,7 +5,7 @@
 // 1. DATA: Restaurant list (Easy to expand for DBMS project)
 export const restaurants = [
   {
-    id: 1, name: 'Evergreen', img: 'https://img.freepik.com/free-photo/top-view-table-full-food_23-2149209253.jpg?semt=ais_rp_progressive&w=740&q=80', phones: ['8056130389', '9962372887', '7200088274'], menu: {
+    id: 1, name: 'Evergreen', img: 'https://lh3.googleusercontent.com/d/1GaZ0xGaqGmmIKZfwcGNQBB_iW5zXANnk', phones: ['8056130389', '9962372887', '7200088274'], menu: {
 
       "BIRYANI": [
 
@@ -330,7 +330,7 @@ export const restaurants = [
     }
   },
   {
-    id: 2, name: 'Classic Biriyani', img: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop', phones: ['7358205870', '8056129893'], menu: {
+    id: 2, name: 'Classic Biriyani', img: 'https://lh3.googleusercontent.com/d/1qI-YzbbqbKQACVdTlKZdNRWrGclGYOqw', phones: ['7358205870', '8056129893'], menu: {
       "ROLL": [
 
         { name: "Extra Cheese or Mayo", price: 10 },
@@ -519,7 +519,7 @@ export const restaurants = [
     }
   },
   {
-    id: 3, name: 'S. R. Chat Corner', img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2070&auto=format&fit=crop', phones: ['9500508071', '9500509871', '7305333052'],
+    id: 3, name: 'S. R. Chat Corner', img: 'https://lh3.googleusercontent.com/d/19zZdsY-9w0ifU3eMICVrZ_FC2D7-pTwL', phones: ['9500508071', '9500509871', '7305333052'],
     menu: {
 
       "SANDWICH": [
@@ -734,7 +734,7 @@ export const restaurants = [
     }
   },
   {
-    id: 4, name: 'Sunny Days', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=2047&auto=format&fit=crop', phones: ['93661676144', '9578341467', '9176760095', '8667593397'], note: 'MINIMUM ORDER ₹150',
+    id: 4, name: 'Sunny Days', img: 'https://lh3.googleusercontent.com/d/1m4AWJEbg4AKk5CDins_ffAJuM1gYwZxu', phones: ['93661676144', '9578341467', '9176760095', '8667593397'], note: 'MINIMUM ORDER ₹150',
     menu: {
 
       "MOCKTAIL": [
@@ -905,7 +905,7 @@ export const restaurants = [
     }
   },
   {
-    id: 5, name: 'New Classic Chettinadu', img: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/2f/33/2d/healthy-bowl-frische.jpg?w=900&h=500&s=1', phones: ['98942211203'],
+    id: 5, name: 'New Classic Chettinadu', img: 'https://lh3.googleusercontent.com/d/10xKJgiNg6Zbu4wvoLNIjfJPx_jRv2Fmk', phones: ['98942211203'],
     menu: {
 
       "FRESH LIMES": [
@@ -1261,7 +1261,7 @@ export const restaurants = [
     }
   },
   {
-    id: 6, name: "Queen's Court", img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop', phones: ['7200794701', '8122394701'], note: 'MINIMUM ORDER ₹150',
+    id: 6, name: "Queen's Court", img: 'https://lh3.googleusercontent.com/d/1gX6DU63mhS8Z51WC7NNZ0YrcuIqSYA1M', phones: ['7200794701', '8122394701'], note: 'MINIMUM ORDER ₹150',
     menu: {
 
       "Rolls (Uruttu)": [
@@ -1510,7 +1510,7 @@ export const restaurants = [
     }
   },
   {
-    id: 7, name: "Butty (The Chat Corner)", img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop', phones: ['9123817260'],
+    id: 7, name: "Butty (The Chat Corner)", img: 'https://lh3.googleusercontent.com/d/1SxOpsGRLMNI_PE5vjgx8sgO3mNSpwZTE', phones: ['9123817260'],
     menu: {
 
       "Fusion Bites Rolls": [
@@ -1792,7 +1792,7 @@ export const restaurants = [
     }
   },
   {
-    id: 8, name: "Sohana Biriyani House", img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop', phones: ['6379887543'],
+    id: 8, name: "Sohana Biriyani House", img: 'https://lh3.googleusercontent.com/d/1brEFQWQi2EjbiCB0I3-4LpHhO7wQzmHW', phones: ['6379887543'],
     menu: {
 
       "Biryani": [
@@ -1836,7 +1836,7 @@ export const restaurants = [
     }
   },
   {
-    id: 9, name: "Butty (The Food Paradise)", img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop', phones: ['7200318908', '812284547', '9940175123'],
+    id: 9, name: "Butty (The Food Paradise)", img: 'https://lh3.googleusercontent.com/d/1oEjs5YJOjABNQr53FfNBRBtffm3UOiEN', phones: ['7200318908', '812284547', '9940175123'],
     menu: {
 
       "Biryani": [
@@ -1991,7 +1991,7 @@ export const restaurants = [
     }
   },
   {
-    id: 10, name: "Google Food Park", img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop', phones: ['97899040816', '8056130226'],
+    id: 10, name: "Google Food Park", img: 'https://lh3.googleusercontent.com/d/1Fv5XB9YCMycxcH1dAktBcj7W8kTY3jth', phones: ['97899040816', '8056130226'],
     menu: {
 
       "Chicken All Roll Items": [
@@ -2159,7 +2159,7 @@ export const restaurants = [
     }
   },
   {
-    id: 11, name: "Masaledar Kitchen", img: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974&auto=format&fit=crop', phones: ['9102770111', '910275777775'],
+    id: 11, name: "Masaledar Kitchen", img: 'https://lh3.googleusercontent.com/d/1x-72H56z36sJ_LzcwwMYctHA5IT7ByQj', phones: ['9102770111', '910275777775'],
     menu: {
 
       "Starter": [
