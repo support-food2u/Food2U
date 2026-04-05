@@ -6,7 +6,7 @@ import { gsap } from 'gsap';
 function Menu() {
   const [searchParams] = useSearchParams();
   const searchTerm = searchParams.get('search') || '';
-  
+
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [activeModal, setActiveModal] = useState(null);
 
@@ -115,11 +115,21 @@ function Menu() {
                     </div>
                   ))}
                 </div>
-                <div className="modal-footer border-0">
-                  <button className="btn btn-secondary rounded-pill px-4" onClick={closeModal}>Close</button>
-                  <button className="btn btn-success rounded-pill px-4" onClick={() => setActiveModal('phone')}>
-                    <i className="fa-solid fa-phone me-2"></i>Order Now
-                  </button>
+                <div className="modal-footer border-0 flex-column">
+
+                  <p className="text-danger small mb-2">
+                    *Prices may vary due to LPG shortage
+                  </p>
+                  <div className="d-flex gap-3">
+                    <button className="btn btn-secondary rounded-pill px-4" onClick={closeModal}>
+                      Close
+                    </button>
+                    
+                    <button className="btn btn-success rounded-pill px-4" onClick={() => setActiveModal('phone')}>
+                      <i className="fa-solid fa-phone me-2"></i>Order Now
+                    </button>
+                  </div>
+
                 </div>
               </div>
             </div>

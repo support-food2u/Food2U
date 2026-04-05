@@ -5,20 +5,26 @@ import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
+let deferredPrompt = null;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
 function Home() {
   const canvasRef = useRef(null);
-  const [installPrompt, setInstallPrompt] = useState(null);
+  const [installPrompt, setInstallPrompt] = useState(deferredPrompt);
 
   useEffect(() => {
-
-    window.addEventListener("beforeinstallprompt", (e) => {
-
+    const handleInstallPrompt = (e) => {
       e.preventDefault();
-
+      deferredPrompt = e;
       setInstallPrompt(e);
-
-    });
-
+    };
+    window.addEventListener("beforeinstallprompt", handleInstallPrompt);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", handleInstallPrompt);
+    };
   }, []);
 
   useEffect(() => {
