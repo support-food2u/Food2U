@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { restaurants } from '../data/restaurants';
 
 function Navbar() {
   const location = useLocation();
@@ -7,6 +8,39 @@ function Navbar() {
   const [searchParams] = useSearchParams();
   const [searchInput, setSearchInput] = useState(searchParams.get('search') || '');
   const [activeSection, setActiveSection] = useState('home');
+  const [showSuggestions, setShowSuggestions] = useState(false);
+  const searchContainerRef = useRef(null);
+
+  // Compute all unique menu items for autocomplete
+  const allMenuItems = useMemo(() => {
+    const items = new Set();
+    restaurants.forEach(res => {
+      Object.keys(res.menu || {}).forEach(category => {
+        res.menu[category].forEach(item => {
+          items.add(item.name);
+        });
+      });
+      items.add(res.name);
+    });
+    return Array.from(items);
+  }, []);
+
+  const filteredSuggestions = useMemo(() => {
+    if (!searchInput.trim()) return [];
+    const lower = searchInput.toLowerCase();
+    return allMenuItems.filter(item => item.toLowerCase().includes(lower)).slice(0, 8); // Limit to 8 suggestions
+  }, [searchInput, allMenuItems]);
+
+  // Click outside to close suggestions
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+        setShowSuggestions(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,11 +85,43 @@ function Navbar() {
         </Link>
 
         {isMenu ? (
-          <form className="d-flex nav-search-container" role="search" onSubmit={handleSearchSubmit}>
-            <input className="form-control" type="search" id="menuSearch" value={searchInput} onChange={e => setSearchInput(e.target.value)} placeholder="Roll, Biryani, Pizza..." aria-label="Search" />
+          <form className="d-flex nav-search-container position-relative" role="search" onSubmit={handleSearchSubmit} ref={searchContainerRef}>
+            <input 
+              className="form-control" 
+              type="search" 
+              id="menuSearch" 
+              value={searchInput} 
+              onChange={e => {
+                setSearchInput(e.target.value);
+                setShowSuggestions(true);
+              }} 
+              onFocus={() => setShowSuggestions(true)}
+              placeholder="Roll, Biryani, Pizza..." 
+              aria-label="Search" 
+              autoComplete="off"
+            />
             <button className="btn btn-search-trigger" type="submit">
               <i className="fa-solid fa-magnifying-glass"></i>
             </button>
+            {showSuggestions && filteredSuggestions.length > 0 && (
+              <ul className="list-group position-absolute w-100 shadow-sm mt-1 suggestions-dropdown" style={{ top: '100%', left: 0, zIndex: 1050, maxHeight: '250px', overflowY: 'auto' }}>
+                {filteredSuggestions.map((suggestion, idx) => (
+                  <li 
+                    key={idx} 
+                    className="list-group-item list-group-item-action d-flex align-items-center"
+                    onClick={() => {
+                      setSearchInput(suggestion);
+                      setShowSuggestions(false);
+                      navigate(`/menu?search=${encodeURIComponent(suggestion)}`);
+                    }}
+                    style={{ cursor: 'pointer', textAlign: 'left', fontSize: '0.95rem' }}
+                  >
+                    <i className="fa-solid fa-utensils text-primary me-2" style={{ fontSize: '0.8rem', opacity: 0.7 }}></i>
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            )}
           </form>
         ) : (
           <>
