@@ -1,0 +1,166 @@
+/* ============================================================
+   Food2U — product.css
+   ============================================================ */
+
+:root {
+  --cream:        #F5F0E8;
+  --ink:          #0E1929;
+  --blue:         #1B5FCC;
+  --blue-vivid:   #1A6BFF;
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --radius-lg:    24px;
+}
+
+body {
+  background: var(--cream);
+  font-family: var(--font-body);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* Fix leftover Vite #root constraints */
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: none !important;
+  text-align: left !important;
+}
+
+/* Texture Overlay */
+.grain {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ─── Navbar & Fixed Search Bar ─── */
+.navbar {
+  background: rgba(245, 240, 232, 0.92) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(14, 25, 41, 0.05);
+  padding: 0.8rem 0;
+}
+
+.navbar-brand { 
+  font-family: var(--font-display); 
+  font-weight: 900; 
+  font-size: 1.6rem; 
+  color: var(--ink) !important; 
+  text-decoration: none;
+}
+
+.brand-2 { color: var(--blue-vivid); font-style: italic; }
+
+.nav-search-container {
+  background: white;
+  border-radius: 50px;
+  padding: 4px 15px;
+  border: 1px solid rgba(27, 95, 204, 0.15);
+  max-width: 280px;
+  transition: all 0.3s ease;
+}
+
+.nav-search-container input { border: none; font-size: 0.88rem; box-shadow: none !important; }
+.btn-search-trigger { color: var(--blue); padding: 0 5px; border: none; }
+
+/* ─── Hero ─── */
+.menu-hero { padding: 50px 0 30px; }
+.menu-eyebrow { 
+    color: var(--blue); 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    font-size: 0.75rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.modal-backdrop {
+  z-index: 1040 !important;
+}
+.modal {
+  z-index: 1050 !important;
+}
+.hero-title { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; }
+.hero-title em { font-style: italic; color: var(--blue); }
+
+/* ─── Card Styling ─── */
+.card {
+  border: none;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 25px rgba(14, 25, 41, 0.05);
+  padding: 12px;
+}
+
+.card-img-top { 
+  height: 190px; 
+  object-fit: cover; 
+  object-position: top;   /* 🔥 ADD THIS LINE */
+  border-radius: 18px; 
+}
+.card-title { font-family: var(--font-display); font-weight: 900; font-size: 1.45rem; margin-top: 15px; }
+
+.btn-primary { background: var(--blue); border: none; border-radius: 50px; padding: 10px; font-weight: 600; }
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: hsl(217, 72%, 35%); /* slightly brighter blue */
+}
+.btn-success { background: #198754; border: none; border-radius: 50px; padding: 10px; font-weight: 600; }
+
+/* ─── Modal Pricing ─── */
+.modal-content { border-radius: 28px; border: none; overflow: hidden; }
+.price-tag { font-weight: 700; color: var(--blue); font-family: var(--font-body); }
+.list-group-item { padding: 18px 0; border-bottom: 1px solid rgba(0,0,0,0.06); font-weight: 500; }
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+    .nav-search-container { max-width: 170px; }
+    .navbar-brand { font-size: 1.3rem; }
+    .hero-title { font-size: 2.2rem; }
+}
+
+/* ─── Custom Blue Scrollbar ─── */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-vivid);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--blue) var(--cream);
+}
+
+#searchResultsText {
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+#searchResultsText em {
+  font-style: italic;
+  color: var(--blue);
+}.restaurant-card .card { transition: transform 0.4s ease-out; } .restaurant-card .card:hover { transform: scale(1.03) translateY(-8px); }
+
+.btn-close {
+  transition: 0.2s ease;
+}
+
+.btn-close:hover {
+  filter: invert(21%) sepia(96%) saturate(7491%) hue-rotate(0deg) brightness(97%) contrast(119%);
+}
