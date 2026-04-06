@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { restaurants } from '../data/restaurants';
-import { gsap } from 'gsap';
+import { gsap } from 'gsap'; 
 
 function Menu() {
   const [searchParams] = useSearchParams();
