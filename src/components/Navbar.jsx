@@ -67,7 +67,7 @@ function Navbar() {
 
   // Need to sync search state when external navigated
   useEffect(() => {
-    setSearchInput(searchParams.get('search') || '');
+     setSearchInput(searchParams.get('search') || '');
   }, [searchParams]);
 
   const handleSearchSubmit = (e) => {
@@ -86,18 +86,18 @@ function Navbar() {
 
         {isMenu ? (
           <form className="d-flex nav-search-container position-relative" role="search" onSubmit={handleSearchSubmit} ref={searchContainerRef}>
-            <input
-              className="form-control"
-              type="search"
-              id="menuSearch"
-              value={searchInput}
+            <input 
+              className="form-control" 
+              type="search" 
+              id="menuSearch" 
+              value={searchInput} 
               onChange={e => {
                 setSearchInput(e.target.value);
                 setShowSuggestions(true);
-              }}
+              }} 
               onFocus={() => setShowSuggestions(true)}
-              placeholder="Roll, Biryani, Pizza..."
-              aria-label="Search"
+              placeholder="Roll, Biryani, Pizza..." 
+              aria-label="Search" 
               autoComplete="off"
             />
             <button className="btn btn-search-trigger" type="submit">
@@ -106,8 +106,8 @@ function Navbar() {
             {showSuggestions && filteredSuggestions.length > 0 && (
               <ul className="list-group position-absolute w-100 shadow-sm mt-1 suggestions-dropdown" style={{ top: '100%', left: 0, zIndex: 1050, maxHeight: '250px', overflowY: 'auto' }}>
                 {filteredSuggestions.map((suggestion, idx) => (
-                  <li
-                    key={idx}
+                  <li 
+                    key={idx} 
                     className="list-group-item list-group-item-action d-flex align-items-center"
                     onClick={() => {
                       setSearchInput(suggestion);
@@ -147,4 +147,3 @@ function Navbar() {
 }
 
 export default Navbar;
-//navbar
