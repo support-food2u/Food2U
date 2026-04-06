@@ -29,6 +29,8 @@ export default defineConfig({
 
         display: "standalone",
 
+        start_url: "/",
+
         icons: [
 
           {
