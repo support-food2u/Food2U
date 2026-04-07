@@ -50,7 +50,7 @@ function Navbar() {
       }
 
       if (window.location.pathname === '/') {
-        const sections = ['home', 'features', 'aboutUs'];
+        const sections = ['home', 'features', 'aboutUs','feedback'];
         let current = 'home';
         for (const id of sections) {
           const el = document.getElementById(id);
@@ -134,6 +134,7 @@ function Navbar() {
                 <li className="nav-item"><a className={`nav-link ${location.pathname === '/' && activeSection === 'home' ? 'active' : ''}`} href="/#home">Home</a></li>
                 <li className="nav-item"><a className={`nav-link ${location.pathname === '/' && activeSection === 'features' ? 'active' : ''}`} href="/#features">Features</a></li>
                 <li className="nav-item"><a className={`nav-link ${location.pathname === '/' && activeSection === 'aboutUs' ? 'active' : ''}`} href="/#aboutUs">About</a></li>
+                <li className="nav-item"><a className={`nav-link ${location.pathname === '/' && activeSection === 'feedback' ? 'active' : ''}`} href="/#feedback">Contact</a></li>
                 <li className="nav-item ms-lg-3">
                   <Link className="nav-cta" to="/menu">Order Now</Link>
                 </li>

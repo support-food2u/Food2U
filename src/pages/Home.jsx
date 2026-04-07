@@ -1,3 +1,4 @@
+import "../style.css";
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -251,6 +252,36 @@ function Home() {
           </div>
         </div>
       </section>
+      <section className="feedback-section" id="feedback">
+  <div className="container">
+    <h2>Contact Us</h2>
+    <p><i>Drop us a note</i></p>
+
+    <form action="https://formspree.io/f/xnjolenz" method="POST">
+      <input 
+        type="text" 
+        name="name" 
+        placeholder="Your Name" 
+        required 
+      />
+
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Your Email" 
+        required 
+      />
+
+      <textarea 
+        name="message" 
+        placeholder="Your Feedback" 
+        required 
+      ></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
     </>
   );
 }
